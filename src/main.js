@@ -1,5 +1,6 @@
 import { products } from './products.js';
 import { productPresentation } from './product-presentation.js';
+import { initMobileUI } from './mobile-ui.js';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -10,6 +11,7 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let activeFilter = 'all';
 let activeProduct = null;
 let previewText = '';
+let mobileUI = null;
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -149,6 +151,7 @@ function renderProducts() {
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', String(active));
   });
+  mobileUI?.syncFilters(matching.length);
 }
 
 function setFilter(filter) {
@@ -294,12 +297,19 @@ function openProduct(id, opener) {
   openDialog(dialog, opener);
 }
 
-function focusSection(hash) {
+function focusSection(hash, { instant = false, focus = true } = {}) {
   let target;
   try { target = document.querySelector(hash); } catch { return; }
   if (!target) return;
   history.replaceState(null, '', hash);
-  target.scrollIntoView({ behavior: reduceMotion.matches ? 'instant' : 'smooth', block: 'start' });
+  const behavior = instant || reduceMotion.matches ? 'instant' : 'smooth';
+  if (hash === '#home' && window.matchMedia('(max-width: 900px)').matches) {
+    // The mobile search row precedes the hero; Home must reveal both.
+    window.scrollTo({ top: 0, behavior });
+  } else {
+    target.scrollIntoView({ behavior, block: 'start' });
+  }
+  if (!focus) return;
   const heading = target.querySelector('h1, h2') || target;
   heading.tabIndex = -1;
   heading.focus({ preventScroll: true });
@@ -381,7 +391,10 @@ $$('dialog').forEach(dialog => {
   });
 });
 window.matchMedia('(min-width: 901px)').addEventListener('change', event => {
-  if (event.matches) closeDialog($('#menu-dialog'));
+  if (event.matches) {
+    closeDialog($('#menu-dialog'));
+    closeDialog($('#filter-dialog'));
+  }
 });
 
 let scrollFrame = 0;
@@ -396,10 +409,16 @@ function updateNavigation() {
     if (section.getBoundingClientRect().top + window.scrollY <= readingLine) current = section;
     else break;
   }
-  let destination = current?.id || '';
-  if (destination === 'formats') destination = 'home';
+  const destination = current?.id || '';
+  const bottomDestinations = {
+    formats: 'home', about: 'home', occasions: 'inspiration',
+    business: 'contact', faq: 'contact',
+  };
   navigationLinks.forEach(link => {
-    const active = destination && link.getAttribute('href') === `#${destination}`;
+    const target = link.closest('.mobile-bottom-nav')
+      ? (bottomDestinations[destination] || destination)
+      : (destination === 'formats' ? 'home' : destination);
+    const active = target && link.getAttribute('href') === `#${target}`;
     link.classList.toggle('active', Boolean(active));
     if (active) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
@@ -511,6 +530,10 @@ function initReveals() {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
+      if (window.matchMedia('(max-width: 900px)').matches) {
+        observer.unobserve(entry.target);
+        return;
+      }
       entry.target.animate(
         [{ opacity: 0.35, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }],
         { duration: 280, easing: 'cubic-bezier(.2,.7,.2,1)' },
@@ -521,6 +544,10 @@ function initReveals() {
   $$('.reveal').forEach(node => observer.observe(node));
 }
 
+mobileUI = initMobileUI({
+  openDialog, closeDialog, setFilter, getActiveFilter: () => activeFilter,
+  resetFilters, focusSection, reduceMotion,
+});
 restoreSelection();
 renderProducts();
 updateSavedState();

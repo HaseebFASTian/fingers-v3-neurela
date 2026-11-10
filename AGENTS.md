@@ -6,4 +6,6 @@ Preserve the supplied food-advertising structure: expressive brush lettering, ir
 
 Mobile uses compact grids, no horizontal scrolling, a header integrated with the hero that gains a solid background on scroll, native dialog menu and safe-area-aware bottom navigation. Keep all tap targets at least 44px. Honour reduced motion. All site assets are local.
 
+Responsive overrides live in src/mobile.css; desktop hero refinement lives in src/hero.css. Shared catalogue logic stays in src/main.js, with mobile search, staged filter sheet and reveal behaviour in src/mobile-ui.js. Mobile Home must scroll to the page top so the search bar above the hero remains visible. Preserve the food-app discovery rows and two-column phone product grid.
+
 Run npm run check and npm run build, verify desktop/mobile and product-filter, saved-list and preview interactions before deployment. Use explicit --project-name=fingers-v3-neurela. Corporate parent is ../v3-final-version; only its Neurela navigation links are in scope for integration. Preserve other versions and Farm Fresh.

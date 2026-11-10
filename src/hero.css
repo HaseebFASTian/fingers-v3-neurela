@@ -1,0 +1,28 @@
+/* A food-studio composition: the cheese carries the visual story. */
+@media (min-width:901px) {
+  .hero {
+    background:linear-gradient(115deg,var(--brand-deep) 0%,var(--brand) 58%,#58341e 100%);
+  }
+  .hero-inner { grid-template-columns:.95fr 1.25fr; }
+  .hero-copy { max-width:590px; }
+  .hero-copy .handwritten { color:var(--gold); }
+  .hero-description { max-width:400px; }
+  .hero-art { position:relative; margin:0; perspective:1200px; isolation:isolate; }
+  .hero-art::before {
+    content:''; position:absolute; left:13%; right:5%; bottom:5%; height:12%;
+    border-radius:50%; background:#160b0799; filter:blur(20px);
+    transform:rotate(-2deg); z-index:0;
+  }
+  .hero-cheese {
+    position:absolute; z-index:1; width:111%; height:104%; max-width:none;
+    margin:0; object-fit:contain; object-position:center;
+    transform:rotateY(-5deg) rotateX(2deg) rotateZ(-1deg);
+    filter:drop-shadow(0 18px 12px #160b0740);
+  }
+  .hero-copy > .button { box-shadow:0 4px 0 #a66c09; }
+  .hero-copy > .button:active { transform:translateY(2px); box-shadow:0 2px 0 #a66c09; }
+}
+@media (min-width:901px) and (max-height:700px) {
+  .hero-cheese { height:105%; }
+  .hero-art::before { bottom:1%; }
+}
