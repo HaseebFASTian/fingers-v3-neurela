@@ -2,7 +2,7 @@
 
 Independent cheese brand website for 5 Fingers Dairy. Work in this folder only. Production Pages project and GitHub repository: `fingers-v3-neurela`. Local server port 5177.
 
-Preserve the supplied food-advertising reference: burnt tomato red, mustard yellow, warm cream, charcoal, expressive brush lettering, irregular painted edges, food photography and varied promotional tiles. Use the original corporate Neurela cheese wordmark and the approved 10 cheese products / 18 pack options from CATALOGUE 5 FINGERS.pdf. Keep catalogue packaging unchanged. Do not invent prices, discounts, testimonials, certifications, delivery promises or contact information. Enquiries remain clearly marked local previews.
+Preserve the supplied food-advertising structure: expressive brush lettering, irregular painted edges, food photography and varied promotional tiles. The updated colour system follows the original Neurela logo and packaging: deep chocolate, sharp cheese-gold, ivory and warm honey tones. Avoid unrelated blue, sage, olive or dominant red surfaces. Keep sections full-width with only small safe content insets. Use the original corporate Neurela cheese wordmark and the approved 10 cheese products / 18 pack options from CATALOGUE 5 FINGERS.pdf. Keep catalogue packaging unchanged. Do not invent prices, discounts, testimonials, certifications, delivery promises or contact information. Enquiries remain clearly marked local previews.
 
 Mobile uses compact grids, no horizontal scrolling, a header integrated with the hero that gains a solid background on scroll, native dialog menu and safe-area-aware bottom navigation. Keep all tap targets at least 44px. Honour reduced motion. All site assets are local.
 
