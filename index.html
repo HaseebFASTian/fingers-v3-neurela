@@ -14,8 +14,8 @@
   <link rel="preload" href="/fonts/road-rage.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/src/styles.css">
-  <link rel="stylesheet" href="/src/hero.css">
   <link rel="stylesheet" href="/src/mobile.css">
+  <link rel="stylesheet" href="/src/hero.css">
   <title>Neurela | Made for the melt.</title>
 </head>
 <body>
@@ -53,13 +53,21 @@
 </form>
 
 <main id="main">
-  <section class="hero" id="home" aria-labelledby="hero-title">
-
-    <div class="hero-inner wrap">
-      <div class="hero-copy"><p class="handwritten">A little cheese. A lot to love.</p><h1 id="hero-title">MADE FOR <br>THE <span>MELT.</span></h1><p class="hero-intro">For the first slice. <br>And the last delicious bite.</p><p class="hero-description desktop-copy">Mozzarella, cheddar and your next great idea. Find your favourite Neurela cheese.</p><p class="hero-description mobile-copy">Your favourite cheese. <br>Your next delicious idea.</p><a class="button button-yellow" href="#range">Explore our cheese <svg class="icon" aria-hidden="true"><use href="#icon-cheese"/></svg></a></div>
-      <div class="hero-art"><img class="hero-cheese" src="/assets/hero-cheese-board.webp" width="1536" height="1024" alt="Cheddar, mozzarella, shredded cheese and cheese dice on a serving board" fetchpriority="high"></div>
+  <section class="hero hero-showcase" id="home" aria-labelledby="hero-title">
+    <div class="hero-experience">
+      <div class="hero-stage">
+        <span class="hero-backtype" aria-hidden="true">NEURELA</span>
+        <h1 id="hero-title" class="hero-split-title"><span>MADE FOR</span> <span>THE <em>MELT.</em></span></h1>
+        <div class="hero-sculpture">
+          <div class="hero-tilt"><div class="hero-float"><img src="/assets/neurela-hero-sculpture.webp" width="1254" height="1254" alt="Golden cheddar, creamy mozzarella, cheese slices and shreds in a sculptural arrangement" fetchpriority="high" decoding="async"></div></div>
+        </div>
+      </div>
+      <div class="hero-summary">
+        <a class="hero-cut-link" href="#formats"><img src="/assets/neurela-hero-detail.webp" width="1536" height="1024" alt="Cheddar slices and mozzarella cubes" decoding="async"><span>Find your favourite cut</span></a>
+        <div class="hero-invitation"><a class="button button-yellow" href="#range">Explore our cheese <svg class="icon" aria-hidden="true"><use href="#icon-cheese"/></svg></a><p>A little cheese.<br><strong>A lot to love.</strong></p><span>Mozzarella, cheddar and your next great idea.</span></div>
+        <a class="hero-range-note" href="#range"><strong>10</strong><span>cheeses to explore</span><small>18 pack options</small></a>
+      </div>
     </div>
-    <div class="hero-footer wrap"><span>MOZZARELLA</span><i></i><span>CHEDDAR</span><i></i><span>YOUR NEXT FAVOURITE</span></div>
   </section>
 
   <section class="cheese-menu section wrap" id="formats" aria-labelledby="formats-title">
@@ -195,6 +203,7 @@
 <dialog id="product-dialog" class="product-dialog" aria-label="Product details"><button class="icon-button dialog-close" type="button" data-close-dialog aria-label="Close product details"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button><div id="product-dialog-content"></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script type="module" src="/src/main.js"></script>
+<script type="module" src="/src/hero.js"></script>
 </body>
 </html>
 

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/server.mjs",
-    "check": "node --check src/main.js && node --check src/mobile-ui.js && node scripts/check.mjs",
+    "check": "node --check src/main.js && node --check src/mobile-ui.js && node --check src/hero.js && node scripts/check.mjs",
     "build": "node scripts/build.mjs",
     "deploy": "npm run build && wrangler pages deploy dist --project-name=fingers-v3-neurela --branch=main"
   }
