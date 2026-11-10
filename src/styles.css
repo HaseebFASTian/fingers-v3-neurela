@@ -161,3 +161,75 @@ dialog{border:0;color:var(--ink);padding:0}dialog::backdrop{background:#1c100abd
   .product-actions { gap: 6px; }
   .product-details { padding-inline: 8px; }
 }
+
+/* Bright product-led business feature; original pack artwork stays unchanged. */
+.kitchen-section { background: #f4ebda; color: var(--ink); }
+.kitchen-photo {
+  inset: 0 0 0 34%;
+  opacity: 1;
+  background: url('/assets/kitchen-products-light.webp') right bottom / cover no-repeat;
+}
+.kitchen-photo::after {
+  background: linear-gradient(90deg, #f4ebda, #f4ebda00 38%);
+}
+.kitchen-inner {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 28px;
+  padding-block: 48px;
+  min-height: 540px;
+}
+.kitchen-copy { width: auto; max-width: 550px; }
+.kitchen-copy .handwritten { color: #965122; }
+.kitchen-copy h2 { color: #422a1c; }
+.kitchen-copy h2 span { color: var(--red); }
+.kitchen-copy > p:not(.handwritten) { color: #65503e; }
+.kitchen-copy .kitchen-footnote { color: #75604b !important; }
+.kitchen-products { position: relative; height: 420px; min-width: 0; }
+.kitchen-pack {
+  position: absolute;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 9px #4a2c1220);
+}
+.kitchen-pack-mozzarella { height: 390px; left: -4%; bottom: 34px; transform: rotate(-4deg); }
+.kitchen-pack-slices { height: 345px; right: -4%; bottom: 30px; transform: rotate(5deg); }
+.kitchen-pack-block { height: 250px; left: 24%; bottom: -60px; z-index: 2; transform: rotate(-4deg); }
+@media (min-width: 901px) and (max-width: 1150px) {
+  .kitchen-inner { gap: 12px; }
+  .kitchen-products { height: 365px; }
+  .kitchen-pack-mozzarella { height: 320px; left: -7%; bottom: 30px; }
+  .kitchen-pack-slices { height: 285px; right: -8%; bottom: 28px; }
+  .kitchen-pack-block { height: 215px; left: 22%; bottom: -48px; }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .kitchen-inner { grid-template-columns: 1fr 1fr; gap: 12px; padding-block: 40px; }
+  .kitchen-copy h2 { font-size: 56px; }
+  .kitchen-copy .handwritten { font-size: 24px; }
+  .kitchen-products { height: 325px; }
+  .kitchen-pack-mozzarella { height: 270px; left: -8%; bottom: 25px; }
+  .kitchen-pack-slices { height: 240px; right: -10%; bottom: 22px; }
+  .kitchen-pack-block { height: 190px; left: 19%; bottom: -40px; }
+}
+@media (max-width: 600px) {
+  .kitchen-photo { inset: auto 0 0; height: 330px; background-position: center bottom; }
+  .kitchen-photo::after { background: linear-gradient(#f4ebda, #f4ebda00 28%); }
+  .kitchen-inner { grid-template-columns: 1fr; gap: 8px; padding-block: 32px 30px; min-height: 0; }
+  .kitchen-copy { max-width: 100%; }
+  .kitchen-copy .handwritten { max-width: 100%; margin-bottom: 12px; font-size: 23px; }
+  .kitchen-copy h2 { max-width: 100%; font-size: 49px; }
+  .kitchen-copy > p:not(.handwritten) { max-width: 100%; font-size: 15px; margin: 14px 0; }
+  .kitchen-copy .kitchen-footnote { font-size: 11px !important; margin-top: 14px !important; }
+  .kitchen-products { height: 255px; width: 100%; max-width: 390px; margin-inline: auto; }
+  .kitchen-pack-mozzarella { height: 255px; left: -5%; bottom: 10px; }
+  .kitchen-pack-slices { height: 225px; right: -5%; bottom: 8px; }
+  .kitchen-pack-block { height: 165px; left: 24%; bottom: -36px; }
+}
+@media (max-width: 360px) {
+  .kitchen-copy h2 { font-size: 44px; }
+  .kitchen-products { height: 230px; }
+  .kitchen-pack-mozzarella { height: 220px; left: -6%; bottom: 10px; }
+  .kitchen-pack-slices { height: 195px; right: -7%; bottom: 8px; }
+  .kitchen-pack-block { height: 150px; left: 23%; bottom: -32px; }
+}

@@ -21,3 +21,7 @@ Road Rage from Google Fonts (OFL); expressive display typography inspired by the
 ## Reference adaptation
 
 User supplied a Daily Zone food-layout screenshot. Preserved its red/mustard/cream/charcoal palette, brush lettering, painted section edges, image menu, varied food banners, product display and dark kitchen feature. Replaced restaurant delivery promotions and unverified testimonials with Neurela cheese content, serving ideas and useful product information. No prices, fabricated discounts or claims are presented.
+
+## Light business feature update
+
+The business section now uses `kitchen-products-light.webp`, a generated bright ivory counter background, with three original product packshots layered in HTML. The former dark chef image is no longer displayed in this section. Labels and packaging remain unchanged. Prompt and generation provenance: `image-prompts-kitchen.md`.

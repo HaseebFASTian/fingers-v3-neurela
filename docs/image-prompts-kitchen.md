@@ -1,0 +1,8 @@
+# Light product scene
+
+Generated with the built-in image_gen tool for the Neurela business section. Original PNG retained in `work/generated/kitchen-products-light.png`; optimized WEBP in `public/assets/kitchen-products-light.webp`. Conversion changes format and dimensions only. The original approved product packshots will be layered separately in HTML to preserve packaging details. No packaging or labels were generated into this background.
+
+## Final prompt
+
+Use case: ads-marketing. Asset type: high-key editorial product photography backdrop for Neurela cheese brand website, landscape 3:2. Generate a refined bright empty product stage in a softly lit warm ivory kitchen with a clean pale warm cream plaster wall. A pale cream travertine stone countertop occupies the lower quarter of the frame with a natural subtle horizontal wall/counter join. Very subtle soft window light and airy diffuse shadows, no visible window itself. Keep the entire central and right main area open and completely empty so three original product packs can be overlaid there later. Small sparse cheese shreds and a few pale mozzarella cubes lie only at the far lower-left edge, and one tiny basil sprig with a cherry tomato at the far lower-right edge. Accessories must remain small, low and restrained, never dominate. Natural photorealistic stone texture, warm white tones, premium contemporary food editorial still-life photography. No people, no chef, no pizza, no dark areas, no plinths, no packaging, no labels, no text, no logos, no watermark. Clean luminous light background, softly lit not blown out. View at gentle counter-height angle, wide empty centre for composition.
+
