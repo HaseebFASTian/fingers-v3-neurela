@@ -1,0 +1,12 @@
+{
+  "name": "fingers-v3-neurela",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/server.mjs",
+    "check": "node --check src/main.js && node scripts/check.mjs",
+    "build": "node scripts/build.mjs",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name=fingers-v3-neurela --branch=main"
+  }
+}

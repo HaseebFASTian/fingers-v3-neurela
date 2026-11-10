@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fingers-v3-neurela.pages.dev/sitemap.xml
