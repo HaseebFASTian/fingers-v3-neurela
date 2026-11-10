@@ -1,4 +1,5 @@
 import { products } from './products.js';
+import { productPresentation } from './product-presentation.js';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -89,7 +90,11 @@ function updateSavedState() {
 
 function createProductCard(product) {
   const card = element('article', 'product-card');
+  const presentation = productPresentation[product.id] || { label: product.formatLabel, tone: 'cream', scale: 1 };
   const art = element('div', 'product-art');
+  art.dataset.tone = presentation.tone;
+  const label = element('p', 'product-art-label', presentation.label);
+  const stage = element('div', 'product-image-stage');
   const image = element('img');
   image.src = product.image;
   image.alt = `${product.brand} ${product.name} pack`;
@@ -97,6 +102,9 @@ function createProductCard(product) {
   image.height = 768;
   image.loading = 'lazy';
   image.decoding = 'async';
+  image.style.setProperty('--pack-scale', presentation.scale);
+  image.style.setProperty('--pack-x', presentation.x || '0%');
+  image.style.setProperty('--pack-y', presentation.y || '0%');
   const save = element('button', 'save-product');
   save.type = 'button';
   save.dataset.save = product.id;
@@ -105,17 +113,19 @@ function createProductCard(product) {
   save.setAttribute('aria-pressed', String(isSaved));
   save.classList.toggle('is-saved', isSaved);
   save.append(heartIcon());
-  art.append(image, save);
+  stage.append(image);
+  art.append(label, stage);
 
   const content = element('div', 'product-content');
-  const format = element('p', 'product-format', product.formatLabel);
   const title = element('h3', '', product.name);
   const sizes = element('p', 'product-sizes', product.packs.map(pack => pack.size).join(' / '));
   const details = element('button', 'product-details', 'View details');
   details.type = 'button';
   details.dataset.product = product.id;
   details.setAttribute('aria-label', `View ${product.name} details`);
-  content.append(format, title, sizes, details);
+  const actions = element('div', 'product-actions');
+  actions.append(details, save);
+  content.append(title, sizes, actions);
   card.append(art, content);
   return card;
 }
